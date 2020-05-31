@@ -195,4 +195,17 @@ function loop(time_stamp) {
       }
     }
   }
+
+  let colliding = false;
+
+  for (let index = shapes.length - 1; index > -1; --index) {
+    let shape = shapes[index];
+
+    if (selected_shape && selected_shape.collide(shape, [1, 0])) {
+      drawShape(shape, "#f08000");
+      colliding = true;
+    } else {
+      drawShape(shape, "#0080f0");
+    }
+  }
 }
