@@ -165,3 +165,16 @@ function drawCircle(circle, c = "#0080f0") {
   context.closePath();
   context.fill();
 }
+
+function drawPolygon(vertices, c = "#0080f0") {
+  context.beginPath();
+  context.fillStyle = c;
+  context.moveTo(vertices[0], vertices[1]);
+
+  for (let index = vertices.length - 1; index > 0; index -= 2) {
+    context.lineTo(vertices[index - 1], vertices[index]);
+  }
+
+  context.closePath();
+  context.fill();
+}
