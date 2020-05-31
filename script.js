@@ -55,4 +55,8 @@ class ConvexShape2D {
       s.unshift(p);
     }
   }
+
+  getExtremePoint(vx, vy) {}
+
+  moveTo() {}
 }
