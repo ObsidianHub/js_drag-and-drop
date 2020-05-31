@@ -157,3 +157,11 @@ function drawShape(shape, c) {
       drawPolygon(shape.vertices, c);
   }
 }
+
+function drawCircle(circle, c = "#0080f0") {
+  context.beginPath();
+  context.fillStyle = c;
+  context.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2);
+  context.closePath();
+  context.fill();
+}
