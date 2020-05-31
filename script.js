@@ -178,3 +178,10 @@ function drawPolygon(vertices, c = "#0080f0") {
   context.closePath();
   context.fill();
 }
+
+function loop(time_stamp) {
+  window.requestAnimationFrame(loop);
+
+  context.fillStyle = "#ffffff";
+  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+}
