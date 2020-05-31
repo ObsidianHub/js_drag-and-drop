@@ -136,3 +136,14 @@ var shapes = [
   new Polygon(100, 300, [-20, -20, 20, -20, 20, 20, -20, 20]),
   new Polygon(100, 400, [0, -20, 20, 20, -20, 20]),
 ];
+
+var pointer = {
+  x: 0,
+  y: 0,
+  down: false,
+  getExtremePoint: function () {
+    return [this.x, this.y];
+  },
+};
+
+var selected_shape = undefined;
