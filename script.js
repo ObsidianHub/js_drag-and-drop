@@ -208,4 +208,15 @@ function loop(time_stamp) {
       drawShape(shape, "#0080f0");
     }
   }
+
+  if (selected_shape) {
+    selected_shape.moveTo(pointer.x, pointer.y);
+    if (colliding) drawShape(selected_shape, "#f08000");
+    else drawShape(selected_shape, "#0080f0");
+  }
+
+  if (!pointer.down && selected_shape) {
+    shapes.push(selected_shape);
+    selected_shape = undefined;
+  }
 }
