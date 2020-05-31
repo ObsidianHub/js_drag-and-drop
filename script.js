@@ -84,3 +84,15 @@ class Circle extends ConvexShape2D {
     this.y = y;
   }
 }
+
+class Polygon extends ConvexShape2D {
+  constructor(x, y, vertices) {
+    super();
+
+    this.x = this.y = 0;
+
+    this.vertices = [...vertices];
+
+    this.moveTo(x, y);
+  }
+}
