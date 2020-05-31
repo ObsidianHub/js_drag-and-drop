@@ -147,3 +147,13 @@ var pointer = {
 };
 
 var selected_shape = undefined;
+
+function drawShape(shape, c) {
+  switch (shape.constructor) {
+    case Circle:
+      drawCircle(shape, c);
+      break;
+    case Polygon:
+      drawPolygon(shape.vertices, c);
+  }
+}
