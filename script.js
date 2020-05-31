@@ -235,3 +235,8 @@ function mouseDownMoveUp(event) {
       pointer.down = false;
   }
 }
+
+function resize(event) {
+  context.canvas.height = document.documentElement.clientHeight - 16;
+  context.canvas.width = document.documentElement.clientWidth - 16;
+}
