@@ -9,5 +9,10 @@ class ConvexShape2D {
     var p = [a[0] - b[0], a[1] - b[1]]; // get the extreme point on the Minkowski Difference shape
 
     if (p[0] * d[0] + p[1] * d[1] < 0) return false; // if the origin is beyond p in direction d, return false
+
+    var c = false; // cross product / simplex winding place holder; it doesn't matter how this is initialized because it will be reset when the simplex length is about to be 2
+    var s = [[p[0], p[1]]]; // the simplex now has one point in it
+
+    d = [-p[0], -p[1]]; // search in the direction of the origin next
   }
 }
