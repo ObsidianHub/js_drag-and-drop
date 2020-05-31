@@ -78,4 +78,9 @@ class Circle extends ConvexShape2D {
 
     return [this.x + vx, this.y + vy];
   }
+
+  moveTo(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 }
