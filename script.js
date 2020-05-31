@@ -60,3 +60,13 @@ class ConvexShape2D {
 
   moveTo() {}
 }
+
+class Circle extends ConvexShape2D {
+  constructor(x, y, r) {
+    super();
+
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+}
