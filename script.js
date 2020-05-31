@@ -220,3 +220,18 @@ function loop(time_stamp) {
     selected_shape = undefined;
   }
 }
+
+function mouseDownMoveUp(event) {
+  var r = context.canvas.getBoundingClientRect();
+
+  pointer.x = event.clientX - r.left;
+  pointer.y = event.clientY - r.top;
+
+  switch (event.type) {
+    case "mousedown":
+      pointer.down = true;
+      break;
+    case "mouseup":
+      pointer.down = false;
+  }
+}
