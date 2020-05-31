@@ -240,3 +240,12 @@ function resize(event) {
   context.canvas.height = document.documentElement.clientHeight - 16;
   context.canvas.width = document.documentElement.clientWidth - 16;
 }
+
+window.addEventListener("resize", resize);
+
+window.addEventListener("mousedown", mouseDownMoveUp);
+window.addEventListener("mousemove", mouseDownMoveUp);
+window.addEventListener("mouseup", mouseDownMoveUp);
+
+resize();
+loop();
