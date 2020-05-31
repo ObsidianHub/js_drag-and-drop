@@ -69,4 +69,13 @@ class Circle extends ConvexShape2D {
     this.y = y;
     this.r = r;
   }
+
+  getExtremePoint(vx, vy) {
+    var d = Math.atan2(vy, vx);
+
+    vx = Math.cos(d) * this.r;
+    vy = Math.sin(d) * this.r;
+
+    return [this.x + vx, this.y + vy];
+  }
 }
