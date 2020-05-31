@@ -111,4 +111,17 @@ class Polygon extends ConvexShape2D {
 
     return p;
   }
+
+  moveTo(x, y) {
+    var vx = x - this.x;
+    var vy = y - this.y;
+
+    for (let index = this.vertices.length - 1; index > 0; index -= 2) {
+      this.vertices[index - 1] += vx;
+      this.vertices[index] += vy;
+    }
+
+    this.x += vx;
+    this.y += vy;
+  }
 }
