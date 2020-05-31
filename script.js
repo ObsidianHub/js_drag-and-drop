@@ -184,4 +184,15 @@ function loop(time_stamp) {
 
   context.fillStyle = "#ffffff";
   context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+
+  if (pointer.down && selected_shape == undefined) {
+    for (let index = shapes.length - 1; index > -1; --index) {
+      let shape = shapes[index];
+
+      if (shape.collide(pointer, [1, 0])) {
+        selected_shape = shapes.splice(index, 1)[0];
+        break;
+      }
+    }
+  }
 }
