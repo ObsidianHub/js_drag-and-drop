@@ -125,3 +125,7 @@ class Polygon extends ConvexShape2D {
     this.y += vy;
   }
 }
+
+var context = document
+  .getElementById("canvas")
+  .getContext("2d", { alpha: false });
