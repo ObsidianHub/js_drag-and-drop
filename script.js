@@ -129,3 +129,10 @@ class Polygon extends ConvexShape2D {
 var context = document
   .getElementById("canvas")
   .getContext("2d", { alpha: false });
+
+var shapes = [
+  new Circle(100, 100, 20),
+  new Polygon(100, 200, [0, -20, 20, 0, 20, 20, -20, 20, -20, 0]),
+  new Polygon(100, 300, [-20, -20, 20, -20, 20, 20, -20, 20]),
+  new Polygon(100, 400, [0, -20, 20, 20, -20, 20]),
+];
