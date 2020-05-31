@@ -23,6 +23,36 @@ class ConvexShape2D {
       if (p[0] * d[0] + p[1] * d[1] < 0) return false; // if the origin is beyond p in direction d, return false
 
       let tc = Boolean(s[0][0] * p[1] - s[0][1] * p[0] < 0); // the test cross product will be + / - depending on winding; It doesn't matter what the winding is so long as it is the same for every line segment in the simplex.
+
+      if (s.length == 1) c = tc;
+      // if there's only 1 point in the simplex, choose the current winding; this represents the winding of the first segment in the simplex
+      else if (c == tc) {
+        // if there is more than 1 point in the simplex and the winding is not changing with the addition of p (meaning that the winding is remaining the same for all segments in the simplex and the new segment)
+
+        tc = Boolean(p[0] * s[1][1] - p[1] * s[1][0] < 0); // Now we do a cross check between the test point, p, and the start point of the simplex.
+
+        if (c == tc) return true;
+        // collision!
+        else {
+          // no collision and the winding has changed
+
+          s.shift();
+          tc = c;
+        }
+      } else {
+        c = tc;
+        s.pop();
+      }
+
+      if (tc) {
+        d[0] = p[1] - s[0][1];
+        d[1] = s[0][0] - p[0];
+      } else {
+        d[0] = s[0][1] - p[1];
+        d[1] = p[0] - s[0][0];
+      }
+
+      s.unshift(p);
     }
   }
 }
