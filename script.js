@@ -95,4 +95,20 @@ class Polygon extends ConvexShape2D {
 
     this.moveTo(x, y);
   }
+
+  getExtremePoint(vx, vy) {
+    var p = [this.vertices[0], this.vertices[1]];
+    var ml = this.vertices[0] * vx + this.vertices[1] * vy;
+
+    for (var index = this.vertices.length - 2; index > 1; index -= 2) {
+      let tl = this.vertices[index] * vx + this.vertices[index + 1] * vy;
+
+      if (tl > ml) {
+        ml = tl;
+        p = [this.vertices[index], this.vertices[index + 1]];
+      }
+    }
+
+    return p;
+  }
 }
