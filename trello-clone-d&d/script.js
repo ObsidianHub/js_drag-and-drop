@@ -104,6 +104,25 @@ function updateDOM() {
   });
 
   // Run getSavedColumns only once, Update Local Storage
+  updateOnLoad = true;
+  updateSavedColumns();
+}
+
+// Allows arrays to reflect DnD items
+function rebuildArrays() {
+  for (let i = 0; i < backlogList.children.length; i++) {
+    backlogListArray.push(backlogList.children[i].textContent);
+  }
+  for (let i = 0; i < progressList.children.length; i++) {
+    progressListArray.push(progressList.children[i].textContent);
+  }
+  for (let i = 0; i < completeList.children.length; i++) {
+    completeListArray.push(completeList.children[i].textContent);
+  }
+  for (let i = 0; i < onHoldList.children.length; i++) {
+    onHoldListArray.push(onHoldList.children[i].textContent);
+  }
+  updateDOM();
 }
 
 // When item starts dragging
@@ -132,6 +151,7 @@ function drop(e) {
   // Add item to column
   const parent = listColumns[currentColumn];
   parent.appendChild(draggedItem);
+  rebuildArrays();
 }
 
 // On load
